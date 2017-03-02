@@ -205,5 +205,32 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="16dp" />
 
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player2winCount"
+            android:textStyle="normal|bold"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="@+id/imageButton13"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton13"
+            app:layout_constraintRight_toLeftOf="@+id/imageButton13"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/player2Color" />
+
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player1winCount"
+            android:layout_marginStart="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/imageButton12"
+            android:textStyle="normal|bold"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="@+id/imageButton12"
+            app:layout_constraintBottom_toTopOf="@+id/act2_player1ID"
+            android:layout_marginBottom="8dp"
+            tools:textColor="@color/player1Color" />
+
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>

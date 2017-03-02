@@ -22,7 +22,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     Window window;
     ActionBar ab;
     FloatingActionButton restart;
-    TextView p1,p2,status;
+    TextView p1,p2,status,p1winCount,p2winCount;
     ImageButton[] areas;
     boolean isAI=false;
     int winner;
@@ -30,6 +30,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     int turn;
     int counter;
     boolean isPlaying;
+    int[] playerWinCount=new int[2];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +76,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(),R.color.player1ColorDark));
+
+        p1winCount= (TextView)findViewById(R.id.player1winCount);
+        p2winCount= (TextView)findViewById(R.id.player2winCount);
         Log.d("isAI",isAI+"");
+        playerWinCount[0]= playerWinCount[1]=0;
         init();
     }
     void init(){
@@ -256,6 +261,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                                 tintSystemBarsTwoToOne();
                                 status.setText(p1.getText().toString() + " wins!");
                                 winner=0;
+
                             }
                             else {
 
@@ -266,6 +272,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                                 winner=1;
                                 status.setText(p2.getText().toString() + " wins!");
                             }
+                            playerWinCount[winner]++;
+                            p1winCount.setText(String.valueOf(playerWinCount[0]));
+                            p2winCount.setText(String.valueOf(playerWinCount[1]));
                             restart.setVisibility(View.VISIBLE);
                             isPlaying=false;
                             return;
