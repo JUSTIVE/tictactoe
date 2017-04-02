@@ -287,8 +287,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     //window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(),R.color.player2ColorDark));
 
                 } else {
-
-
                     ((ImageButton) v).setImageDrawable(getDrawable(R.drawable.ic_close));
                     v.setBackgroundColor(Color.parseColor("#00000000"));
                     //ab.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(),R.color.player1Color)));
@@ -297,19 +295,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     data[index] = turn;
                     counter++;
                 }
-
-
                 if(!isAI) {
 
                     turn += 1;
                     turn = turn % 2;
-
                 }
-
                 Log.d("count",counter+"");
             }
-
-
             int result=checkAll();
             if (result >-1){
                 if(result==0) {
@@ -362,12 +354,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             }
         }
         //cross
-
         if((data[0]==data[4]&&data[0]==data[8])||(data[2]==data[4]&&data[2]==data[6])){
             result=data[4];
             return result;
         }
-
         return result;
     }
     void aiPlaying(){
@@ -437,7 +427,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             }
         }
         if(counter==3){
-            if((data[0]==data[8])||(data[2]==data[6])){
+            if((data[0]==data[8])&&(data[0]!=-1)||((data[2]==data[6])&&(data[2]!=-1))){
                 ai_case=6;
                 guess=(((int)(Math.random()*8))%2)+1;
             }
